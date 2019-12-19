@@ -37,16 +37,15 @@ var graph = new Chart(medziagosChart, {
 });
 
 // priklausomybe
-function createChart(ilgis, savitojiVarza, storis = 0.1) {
-
-    var outputChart = document.getElementById('outputChart').getContext('2d');
+function createChart(y, x) {
+    var outputChart = document.getElementById('lukasLiudzius').getContext('2d');
     var priklausomybe = new Chart(outputChart, {
         type: 'line',
         data: {
-            labels: getLabels(ilgis),
+            labels: y,
             datasets: [{
                 label: 'Medžiagos varžos priklausomybė nuo storio',
-                data: initData(ilgis, savitojiVarza, storis)
+                data: x
             }]
         },
         options : {
@@ -54,42 +53,16 @@ function createChart(ilgis, savitojiVarza, storis = 0.1) {
               yAxes: [{
                 scaleLabel: {
                   display: true,
-                  labelString: 'Varža, Ω'
+                  labelString: 'Ilgio pokytis ΔL, mm'
                 }
               }],
               xAxes: [{
                   scaleLabel: {
                       display: true,
-                      labelString: 'Ilgis, m'
+                      labelString: 'Temperatūros pokytis t₁ - t₀, °C'
                   }
               }]
             }
           }
     });
-}
-
-let getLabels = ilgis => {
-    let diff = ilgis / 10,
-        min = ilgis - diff * 5,
-        toReturn = [];
-    for (let i = 0; i <= 10; i++) {
-        let str = (min + diff * i).toFixed(2);
-        toReturn.push(Number(str));
-    }
-    return toReturn;
-}
-
-let initData = (ilgis, savitojiVarza, storis) => { 
-    let count = 10,
-        toReturn = [],
-        diff = ilgis / count,
-        min = ilgis - diff * 5;
-    for (let i = 0; i <= count; i++) {
-        let xVal = min + diff * i;
-        toReturn.push({
-            x: xVal,
-            y: savitojiVarza * xVal / storis
-        });
-    }
-    return toReturn;
 }

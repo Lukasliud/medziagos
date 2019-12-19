@@ -6,6 +6,13 @@ let skirtumas;
 $(document).ready(function () {
     let self = this;
 
+    $('#chartForm').on('submit', e => {
+        e.preventDefault();
+        let formData = $('#chartForm').serializeArray();
+        let xValues = formData[0].value.split(',');
+        let yValues = formData[0].value.split(',');
+        createChart(xValues, yValues);
+    });
 
     // Atsakymo forma
     $('#form').on('submit', e => {
