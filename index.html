@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kietojo kūno temperatūrinio ilgėjimo koeficiento skaičiavimas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <nav class="navigation">
+            <img src="./images/ktu.png" alt="KTU logo"/>
+            <span class="name">Kietojo kūno temperatūrinio ilgėjimo koeficiento skaičiavimas</span>
+            <div class="buttons">
+                <button class="js-nav btn black disabled">Vidutinio ilgėjimo skaičiuotuvas ir grafikai</button>
+                <button class="js-nav btn black waves-light">Teorija</button>
+
+            </div>
+        </nav>
+
+        <div class="tab js-tab">
+            <h4 class="centered">Laboratorinio darbo metu atliktų skaičiavimų rezultatai</h5>
+            <canvas id="chart"></canvas>
+            <form class="col s12 content" id="form">
+                <h4 class="centered">Vidutinio ilgėjimo koeficiento skaičiavimas</h5>
+                <div class="input-field col s6">
+                    <input placeholder="Pradinis ilgis" name="ilgis" type="number" step="any" class="validate">
+                    <label for="first_name" id="labeliukas">Pradinis ilgis L₀, mm</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Ilgio pokytis" name="pokytis" step="any" type="number" class="validate">
+                    <label for="first_name" id="labeliukas">Ilgio pokytis ΔL, mm</label>
+                </div>
+                
+                <div class="input-field col s6">
+                    <input placeholder="Temperatūrų skirtumas" name="skirtumas" type="number" step="any" class="validate">
+                    <label for="first_name" id="labeliukas">Temperatūrų skirtumas t₁ - t₀, °C</label>
+                </div>
+                <button class="btn red btn-large">Skaičiuojam!
+                    
+                </button>
+            </form>
+            <div id="answerOutput">
+                
+            </div>
+            <br/>
+            <br>
+        </div>
+        <div class="js-tab hidden">
+            <div class="content wider">
+                Laidininko aktyvioji (ominė) varža (toliau – varža) apibūdina šio laidininko pasipriešinimą pastoviosios elektros srovės tekėjimui. Kietojo laidininko varža R priklauso nuo jo medžiagos cheminės sudėties, kristalinės struktūros, matmenų, formos ir temperatūros. Ją gali pakeisti ir išoriniai poveikiai: deformuojančios laidininką jėgos ar įtempimai, magnetiniai laukai ir kt. Darbe nagrinėsime pastovaus skerspjūvio S, ilgio l, vienodos temperatūros vienalyčio laidininko varžą. Jo aktyviosios varžos didumą galima nustatyti išmatavus laidininku tekančios srovės stiprį I, esant tarp laidininko galų žinomam potencialų skirtumui φ1 – φ2. Pagal Omo dėsnį, nesant laidininke elektrovaros, t. y. vadinamajai vienalytei grandinės daliai galioja ši lygybė: </br>
+                <b>φ1 – φ2 = IR = U</b> </br>
+                čia U – įtampa tarp grandinės (nagrinėjamuoju atveju – tarp laidininko) galų. </br>
+                Iš čia </br>
+                <b>R=U/I</b></br>
+                Tačiau dažnai naudojamas kitas praktiškai svarbus laidininko varžą apibūdinantis, bet nuo jo išmatavimų ir geometrijos nepriklausantis dydis – savitoji varža p. Nagrinėjamojo vienalyčio pastovaus skerspjūvio laidininko</br>
+                <b>p =(R*S)/l</b></br>
+                Savitoji varža nagrinėjamuoju atveju apibrėžiama kaip vienetinio ilgio ir vienetinio skerspjūvio ploto vienalyčio laidininko varža. Pagal valstybinį standartą (LST ISO 31-9) savitoji varža apibrėžiama kaip proporcingumo koeficientas Omo dėsnio diferencialine forma:</br>
+                <b>E=pj</b> </br>
+                čia E – elektrinio lauko stipris laidininke; j – juo tekančios srovės tankis.</br>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="graph.js"></script>
+</body>
+
+</html>

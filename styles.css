@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #f34535;
+}
+
+.navigation .name {
+    font-family: "Lucida Sans Unicode", Courier, monospace;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+
+    margin-left: 20px;
+
+}
+
+.navigation img {
+    align-self: flex-start;
+    height: 100%;
+}
+
+.navigation .buttons {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navigation .buttons .btn {
+    margin-right: 20px;
+}
+
+.centered {
+    margin: 20px auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container .content {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+
+    margin: 10vh auto;
+}
+
+.container .content.wider {
+    max-width: 1024px;
+}
+
+.container .answer {
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.slider {
+    width: 100%;
+    height: initial !important;
+}
+
+#labeliukas{
+    font-size: 22px;
+}
+
+#answerOutput{
+    align-content: center;
+}
